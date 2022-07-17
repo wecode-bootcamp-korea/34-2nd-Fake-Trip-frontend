@@ -41,7 +41,35 @@
 
 ### **구현 기능**
 
-- 각자 작성
+#### productNav
+
+- DeatailHeader의 scrollY 값이 over 됫을때, 나타나게 한다.
+- react-scroll 라이브러리의 Link로 클릭시 scrollY 이동 구현
+
+#### DetailHeader
+
+- 구글지도에 링크를 product의 위도,경도 데이터와 함께 걸어둔다.
+- 라이브러리 antd의 Carousel, Modal, Rate 를 구현했다.
+- MainImage는 백엔드로부터 오는데, SubImage와 함께온다. is_Main=(boolean) 으로 구별하는 로직을 구현했다.
+- MainImage, SubImage 합 총 5장만 나타내기위해 overflow:hidden으로 숨긴다.
+
+#### SideBar
+
+- srollY 가 Nav를 over 했을 때, position:fix 를 걸어주고, react-scroll Link로 클릭시 scrollY 이동을 구현하였다.
+
+#### detail Optional
+
+- antd Library 의 DatePicker, Dropdown의 value 값을 state로 저장한 후, 클릭시 navigate로 QueryString값을 담아 이동, Location.search 로 Query 값을 뽑은후에 백엔드와 통신후, 데이터를 받아 새로 랜더링을 하여 조건에 맞는 데이터만 화면에 나타낸다.
+- 예약버튼 클릭시, 랜더링 됬을때의 값을 QueryString 값을 담아 Booking page로 이동시킨다.
+
+#### ProductInformation
+
+- 반복되는 태그, 데이터를 줄이기위해 상수데이터를 작성하고 map() 메서드를 사용했다.
+
+#### CustomerReview
+
+- userRating의 키값을 int(1~5)로, Default 값을 0으로 하는 객체를 만든다. 백엔드의 데이터를 userReview state로 저장 후, userReview의 rating(int(1~5)) 와 userRating의 키값과 비교 후, 같은 값이 있다면, value +1 을 해주어 리뷰점수 분포 그래프 기능을 만들었다.
+- text, imagefile 통신을 위해 axios, formData 를 활용했다. 백엔드에 Post 할 데이터를 (image, comment, Rating, product_id ) formData 에 append 하고 post 한다.
 
 ## **Reference**
 
